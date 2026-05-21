@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Flow</title>
+    <!-- Importing a modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Study Flow</h1>
+        <p>Your all-in-one academic companion</p>
+    </header>
+
+    <!-- Navigation for Tabs -->
+    <nav>
+        <button onclick="openTab('timerTab')">Study Timer</button>
+        <button onclick="openTab('todoTab')">To-Do List</button>
+        <button onclick="openTab('sgpaTab')">SGPA Estimator</button>
+        <button onclick="openTab('flashcardTab')">Flashcards</button>
+        <button onclick="openTab('quoteTab')">Motivation</button>
+    </nav>
+
+    <main>
+        <!-- Tab 1: Focus Timer -->
+        <section id="timerTab" class="tab-content active-tab">
+            <div class="card">
+                <h2>Pomodoro Focus Timer</h2>
+                <p>25 minutes of deep work.</p>
+                <div id="timeDisplay">25:00</div>
+                <div class="btn-group">
+                    <button class="primary-btn" onclick="startTimer()">Start</button>
+                    <button class="secondary-btn" onclick="stopTimer()">Stop</button>
+                    <button class="secondary-btn" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: To-Do List (NEW) -->
+        <section id="todoTab" class="tab-content">
+            <div class="card">
+                <h2>Daily Tasks</h2>
+                <p>Track your assignments and goals.</p>
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="Enter a new task (e.g., Physics Assignment)">
+                    <button class="primary-btn" onclick="addTask()">Add</button>
+                </div>
+                <ul id="taskList">
+                    <!-- Tasks will appear here -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tab 3: SGPA Estimator (UPDATED) -->
+        <section id="sgpaTab" class="tab-content">
+            <div class="card">
+                <h2>SGPA Estimator</h2>
+                <p>Enter your expected percentage (0-100) and credits:</p>
+                <div class="input-group">
+                    <input type="number" id="perc1" placeholder="Sub 1 % (e.g. 85)">
+                    <input type="number" id="cred1" placeholder="Sub 1 Credits (e.g. 4)">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="perc2" placeholder="Sub 2 %">
+                    <input type="number" id="cred2" placeholder="Sub 2 Credits">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="perc3" placeholder="Sub 3 %">
+                    <input type="number" id="cred3" placeholder="Sub 3 Credits">
+                </div>
+                <button class="primary-btn full-width" onclick="calculateSGPA()">Calculate SGPA</button>
+                <h3 id="sgpaResult">Your SGPA will appear here.</h3>
+            </div>
+        </section>
+
+        <!-- Tab 4: Flashcards -->
+        <section id="flashcardTab" class="tab-content">
+            <div class="card">
+                <h2>CS Concept Flashcards</h2>
+                <div class="flashcard" id="flashcardBox" onclick="flipCard()">
+                    <h3 id="cardText">Click "Next" to start!</h3>
+                </div>
+                <button class="primary-btn" onclick="nextCard()">Next Card</button>
+            </div>
+        </section>
+
+        <!-- Tab 5: Motivation -->
+        <section id="quoteTab" class="tab-content">
+            <div class="card">
+                <h2>Need a break?</h2>
+                <p>Click below for some academic motivation.</p>
+                <blockquote id="quoteText">"Success is the sum of small efforts, repeated day-in and day-out."</blockquote>
+                <button class="primary-btn" onclick="generateQuote()">Inspire Me</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
